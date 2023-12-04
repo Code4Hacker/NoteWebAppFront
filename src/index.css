@@ -1,0 +1,19 @@
+body{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: rgb(251, 220, 242);
+}
+.banner_{
+  height: 200px;
+  background-color: rgb(11, 12, 13);
+  margin-bottom: 40px;
+  border-radius: 20px;
+  padding-top: 50px;
+}
+.banner_ > * {
+  font-weight: 900;
+  color: transparent;
+  background: linear-gradient(90deg, rgb(71, 191, 255), rgb(63, 248, 82), rgb(247, 52, 52));
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-align: center;
+}

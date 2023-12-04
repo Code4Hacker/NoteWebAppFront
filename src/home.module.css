@@ -1,0 +1,123 @@
+
+.card_{
+  width: 300px;
+  max-height: 250px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+}
+.card_ h2{
+  font-size: large;
+  font-weight: 900;
+  /* margin: 10px; */
+}
+.card_ .desc{
+  font-size: small;
+  color: rgb(27, 27, 27);
+}
+.border_top{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid rgba(128, 128, 128, 0.713);
+  margin-top:20px;
+  padding: 10px;
+  font-size: small;
+}
+.border_top > * {
+  width: 100%;
+}
+.border_top > *:nth-child(2){
+  text-align: end;
+  color: rgb(217, 217, 217);
+  font-style: italic;
+  font-size: x-small;
+}
+.border_top > *:nth-child(1) > *{
+  /* font-size: large; */
+  margin: 2px;
+}
+.flex_cards{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.fixed_all{
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.464);
+}
+
+.fixed_all > * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  display: grid;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.264);
+}
+.fixed_all > * > input {
+  padding: 20px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid rgb(65, 225, 142);
+  margin: 10px;
+  background: none;
+}
+
+.fixed_all > * > button {
+  background-color: rgb(65, 225, 142);
+  border: none;
+}
+
+.fixed_all > * > button:nth-child(5) {
+  background-color: rgb(225, 108, 65);
+  border: none;
+  text-align: center;
+  justify-self: center;
+  position: relative;
+  align-items: center;
+  align-content: center;
+  width: 100px;
+}
+.adding{
+  position: fixed;
+  top: 98%;
+  left: 98%;
+  transform: translate(-98%, -98%);
+}
+.adding > *{
+  background-color: royalblue;
+  color: white;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.305);
+  border: none;
+  transition: .4s ease-in-out;
+}
+.adding > *:hover{
+  background-color: rgb(86, 225, 65);
+  color: white;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.305);
+  border: none;
+  transition: .4s ease-in-out;
+}
