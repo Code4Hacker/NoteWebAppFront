@@ -24,7 +24,7 @@ const App = (props) => {
       </div>
       <div className={styles['flex_cards']}>
        {
-         notee !== undefined && notee.NOTES?.length > 0 ? notee.NOTES.map( ( i, k) =>  <Card data={i} key={k} setNotee={setNotee} />):"Loading ..."
+         notee !== undefined && notee.NOTES?.length > 0 ? notee.NOTES.map( ( i, k) =>  <Card datas={i} key={k} setNotee={setNotee} />):"Loading ..."
        }
       </div>
       <div className={styles['adding']}>
