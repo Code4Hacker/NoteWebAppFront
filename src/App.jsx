@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import axios from 'axios';
 import styles from './home.module.css'
 import AddNew from './AddNew';
+import Loader from './Loader';
 
 const App = (props) => {
   const [notee, setNotee] = useState();
@@ -24,7 +25,7 @@ const App = (props) => {
       </div>
       <div className={styles['flex_cards']}>
        {
-         notee !== undefined && notee.NOTES?.length > 0 ? notee.NOTES.map( ( i, k) =>  <Card datas={i} key={k} setNotee={setNotee} />):"Loading ..."
+         notee !== undefined && notee.NOTES?.length > 0 ? notee.NOTES.map( ( i, k) =>  <Card datas={i} key={k} setNotee={setNotee} />):<Loader />
        }
       </div>
       <div className={styles['adding']}>
