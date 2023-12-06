@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import styles from './home.module.css'
 import axios from 'axios';
 import { live } from './BaseURL';
+import toast from 'react-hot-toast';
 
 const AddNew = ({ setHide, hide, setNotee }) => {
     const [title, setTitle] = useState("");
