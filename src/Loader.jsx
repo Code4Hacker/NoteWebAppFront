@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 
 import loader from './home.module.css'
+import toast from 'react-hot-toast';
 
 const Loader = () => {
     const [hide, setHide] = useState(false);
     setTimeout(() => {
         setHide(true);
-    }, 6000);
+        toast.success(' Loading Session End!');
+    }, 8000);
   return (
     <div className={loader['loader']}>
         <div className="loader-rotate" style={{

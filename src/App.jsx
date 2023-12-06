@@ -6,6 +6,7 @@ import styles from './home.module.css'
 import AddNew from './AddNew';
 import Loader from './Loader';
 import { live } from './BaseURL';
+import { Toaster } from 'react-hot-toast';
 
 const App = (props) => {
   const [notee, setNotee] = useState();
@@ -21,6 +22,7 @@ const App = (props) => {
   }, []);
   return (
     <div className="container mt-5">
+      <Toaster />
       <div className="banner_">
         <h1>GEMINI FREE NOTE WRITTER</h1>
       </div>

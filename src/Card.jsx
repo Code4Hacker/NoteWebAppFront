@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import styles from './home.module.css'
 import axios from 'axios';
 import { live } from './BaseURL';
+import toast from 'react-hot-toast';
 
 const Card = ({ datas, setNotee}) => {
     const [title, setTitle] = useState(datas.title);
@@ -12,9 +13,10 @@ const Card = ({ datas, setNotee}) => {
 
         const url = `${live}delete_and_update_notes.php`;
         const getNote = await axios.get(`${url}?id=${datas.noteId}`);
-        console.log("response ", getNote.data);
+        // console.log("response ", getNote.data);
         const getNotee = await axios.get(`${live}post_and_get_note.php`);
-        setNotee(getNotee.data)
+        setNotee(getNotee.data);
+        toast.success(' Note DELETED Successiful!');
 
     }
     const handleSubmit = async () => {
@@ -29,11 +31,13 @@ const Card = ({ datas, setNotee}) => {
             url: `${live}delete_and_update_notes.php`,
             data: body
         }).then((response) => {
+            // console.log(response, "This  from logger")
             if (response.data.STATUS === '200') {
                 const url = `${live}post_and_get_note.php`;
                 const getAll = async () => {
                     const getNote = await axios.get(url);
-                    console.log("updated ", datas.noteId);
+                    toast.success(' Note Update Successiful!');
+                    // console.log("updated ", datas.noteId);
                     setNotee(getNote.data);
                     setHide1(true);
                 }
@@ -70,7 +74,7 @@ const Card = ({ datas, setNotee}) => {
                     </div>
                     <input type="text" placeholder='Title' className='input input-primary' value={title} onChange={(e) => setTitle(e.target.value)} />
                     <input type="text" placeholder='Description' value={descr} onChange={(e) => setDescr(e.target.value)} />
-                    <button className='btn btn-primary p-3 m-3' onClick={handleSubmit}>Add Note</button>
+                    <button className='btn btn-primary p-3 m-3' onClick={handleSubmit}>Update Note</button>
                     <button className='btn btn-primary p-3' onClick={() => setHide1(true)}>Cancel</button>
                 </div>
             </div>

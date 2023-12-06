@@ -25,7 +25,8 @@ const AddNew = ({ setHide, hide, setNotee }) => {
                 const url = `${live}post_and_get_note.php`;
                 const getAll = async () => {
                     const getNote = await axios.get(url);
-                    console.log("DAta:; ", getNote.data);
+                    toast.success(' Note Created Successiful!');
+                    // console.log("DAta:; ", getNote.data);
                     setNotee(getNote.data);
                     setHide(true);
                 }
