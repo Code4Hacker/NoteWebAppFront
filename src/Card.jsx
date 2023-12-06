@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import styles from './home.module.css'
 import axios from 'axios';
+import { live } from './BaseURL';
 
 const Card = ({ datas, setNotee}) => {
     const [title, setTitle] = useState(datas.title);
@@ -9,10 +10,10 @@ const Card = ({ datas, setNotee}) => {
     const [descr, setDescr] = useState(datas.descr);
     const del = async () => {
 
-        const url = "http://localhost:80/IAA/delete_and_update_notes.php";
+        const url = `${live}delete_and_update_notes.php`;
         const getNote = await axios.get(`${url}?id=${datas.noteId}`);
         console.log("response ", getNote.data);
-        const getNotee = await axios.get("http://localhost:80/IAA/post_and_get_note.php");
+        const getNotee = await axios.get(`${live}post_and_get_note.php`);
         setNotee(getNotee.data)
 
     }
@@ -25,11 +26,11 @@ const Card = ({ datas, setNotee}) => {
         const body = data;
         const request = await axios.request({
             method: 'POST',
-            url: 'http://localhost:80/IAA/delete_and_update_notes.php',
+            url: `${live}delete_and_update_notes.php`,
             data: body
         }).then((response) => {
             if (response.data.STATUS === '200') {
-                const url = "http://localhost:80/IAA/post_and_get_note.php";
+                const url = `${live}post_and_get_note.php`;
                 const getAll = async () => {
                     const getNote = await axios.get(url);
                     console.log("updated ", datas.noteId);

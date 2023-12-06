@@ -5,14 +5,15 @@ import axios from 'axios';
 import styles from './home.module.css'
 import AddNew from './AddNew';
 import Loader from './Loader';
+import { live } from './BaseURL';
 
 const App = (props) => {
   const [notee, setNotee] = useState();
   const [hide, setHide] = useState(true);
-  const url = "http://localhost:80/IAA/post_and_get_note.php";
+  const url = `${live}post_and_get_note.php`;
   const getAll = async () => {
     const getNote = await axios.get(url);
-    console.log("DAta:; ",getNote.data);
+    // console.log("DAta:; ",getNote.data);
     setNotee(getNote.data)
   }
   useEffect(()  => {

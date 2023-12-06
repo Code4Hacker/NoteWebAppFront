@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import styles from './home.module.css'
 import axios from 'axios';
+import { live } from './BaseURL';
 
 const AddNew = ({ setHide, hide, setNotee }) => {
     const [title, setTitle] = useState("");
@@ -17,11 +18,11 @@ const AddNew = ({ setHide, hide, setNotee }) => {
         const body = data;
         const request = await axios.request({
             method: 'POST',
-            url: 'http://localhost:80/IAA/post_and_get_note.php',
+            url: `${live}post_and_get_note.php`,
             data: body
         }).then((response) => {
             if (response.data.STATUS === '200') {
-                const url = "http://localhost:80/IAA/post_and_get_note.php";
+                const url = `${live}post_and_get_note.php`;
                 const getAll = async () => {
                     const getNote = await axios.get(url);
                     console.log("DAta:; ", getNote.data);
