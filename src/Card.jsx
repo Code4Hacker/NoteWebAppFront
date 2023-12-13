@@ -16,7 +16,7 @@ const Card = ({ datas, setNotee}) => {
         // console.log("response ", getNote.data);
         const getNotee = await axios.get(`${live}post_and_get_note.php`);
         setNotee(getNotee.data);
-        toast.success(' Note DELETED Successiful!');
+        toast.success(' Note Deleted Successiful!');
 
     }
     const handleSubmit = async () => {

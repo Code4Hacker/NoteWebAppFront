@@ -6,16 +6,19 @@ import styles from './home.module.css'
 import AddNew from './AddNew';
 import Loader from './Loader';
 import { live } from './BaseURL';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 const App = (props) => {
   const [notee, setNotee] = useState();
   const [hide, setHide] = useState(true);
   const url = `${live}post_and_get_note.php`;
   const getAll = async () => {
-    const getNote = await axios.get(url);
-    // console.log("DAta:; ",getNote.data);
-    setNotee(getNote.data)
+    await axios.get(url).then(response => setNotee(response.data)).catch(error => {
+      toast.error(error.message);
+      if(error.message === "Network Error"){
+        document.body.style.backgroundColor="black";
+      }
+    });
   }
   useEffect(()  => {
     getAll();
